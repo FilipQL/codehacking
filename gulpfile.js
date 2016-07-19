@@ -19,6 +19,7 @@ elixir(function(mix) {
         'libs/metisMenu.css',
         'libs/sb-admin-2.css',
         'libs/blog-post.css',
+        'libs/croppic.css',
         'libs/custom.css'
 
     ], './public/css/libs.css').scripts([
@@ -27,6 +28,7 @@ elixir(function(mix) {
         'libs/bootstrap.js',
         'libs/metisMenu.js',
         'libs/sb-admin-2.js',
+        'libs/croppic.js',
         'libs/scripts.js'
 
     ], './public/js/libs.js')

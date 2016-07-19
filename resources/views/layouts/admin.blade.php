@@ -136,11 +136,11 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/media">All Media</a>
+                                    <a href="#">All Media</a>
                                 </li>
 
                                 <li>
-                                    <a href="">Upload Media</a>
+                                    <a href="#">Upload Media</a>
                                 </li>
 
                             </ul>
@@ -220,7 +220,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -275,12 +275,9 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header"></h1>
 
-                        @yield('content')
-                    </div>
-                    <!-- /.col-lg-12 -->
+                    @yield('content')
+
                 </div>
                 <!-- /.row -->
             </div>
@@ -296,6 +293,6 @@
 
     <script src="{{asset('js/libs.js')}}"></script>
 
-
+    @yield('skripte')
 </body>
 </html>

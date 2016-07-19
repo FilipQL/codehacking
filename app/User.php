@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id', 'is_active', 'profile_photo'
     ];
 
     /**
@@ -24,9 +24,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getProfilePhotoPathAttribute()
+    {
+        return '/images/users/' . $this->profile_photo;
+    }
+
 
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 }
