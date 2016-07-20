@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="col-lg-12">
-
+        <br>
         @include('partials.flash')
+        @include('partials.errors')
 
         <h1 class="page-header">Users</h1>
 
@@ -36,7 +37,8 @@
                             </td>
                             <td>{{ $user->created_at->diffForHumans() }}</td>
                             <td colspan="2">
-                                <a href="{{ route('admin.users.edit', $user->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a> | <a href="#"><i class="glyphicon glyphicon-remove"></i> Delete</a>
+                                <a href="{{ route('admin.users.edit', $user->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a> |
+                                <a href="{{ route('admin.users.confirm', $user->id) }}"><i class="glyphicon glyphicon-remove"></i> Delete</a>
                             </td>
                         </tr>
                     @endforeach

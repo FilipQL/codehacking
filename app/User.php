@@ -39,4 +39,29 @@ class User extends Authenticatable
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function hasRole($r)
+    {
+        if (is_string($r)) {
+            return $this->role->name == $r ? true : false;
+        }
+        elseif (is_object($r) && is_a($r, Role::class)) {
+            return $this->role->name == $r->name ? true : false;
+        } elseif (is_int($r)) {
+            return $this->role->id == $r ? true : false;
+        }
+
+        return false;
+    }
+
+    public function isActive()
+    {
+        return $this->is_active == 1 ? true : false;
+    }
+
 }

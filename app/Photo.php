@@ -13,4 +13,9 @@ class Photo extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getPhotoPathAttribute()
+    {
+        return 'images/users/' . $this->file_name;
+    }
+
 }

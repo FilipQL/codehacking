@@ -14,7 +14,7 @@ class AdminUsersController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('admin');
     }
 
     /**
@@ -136,14 +136,32 @@ class AdminUsersController extends Controller
         return $image_name;
     }
 
+
+    public function confirm(Requests\DeleteUserRequest $request, $id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.users.confirm', compact('user'));
+    }
+    
+    
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Requests\DeleteUserRequest $request, $id)
     {
-        //
+        $user = User::with('photos')->findOrFail($id);
+
+        foreach ($user->photos as $photo) {
+            if (\File::exists($photo->PhotoPath)) {
+                \File::delete($photo->PhotoPath);
+            }
+        }
+
+        $user->delete();
+
+        return redirect('admin/users')->with('message', 'User successfully deleted!');
     }
 }

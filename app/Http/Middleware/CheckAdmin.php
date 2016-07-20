@@ -15,6 +15,12 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (\Auth::check()) {
+            if (\Auth::user()->hasRole('administrator') && \Auth::user()->isActive()) {
+                return $next($request);
+            }
+        }
+
+        return redirect()->back();
     }
 }

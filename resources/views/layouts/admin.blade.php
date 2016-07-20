@@ -36,7 +36,9 @@
                 @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        <i class="fa fa-user fa-fw"></i>
+                        {{ Auth::user()->name }}
+                        <i class="fa fa-caret-down"></i>
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
@@ -104,11 +106,11 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">All Posts</a>
+                                    <a href="{{ route('admin.posts.index') }}">All Posts</a>
                                 </li>
 
                                 <li>
-                                    <a href="#">Create Post</a>
+                                    <a href="{{ route('admin.posts.create') }}">Create Post</a>
                                 </li>
 
                             </ul>
@@ -117,18 +119,7 @@
 
 
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/categories">All Categories</a>
-                                </li>
-
-                                <li>
-                                    <a href="/categories/create">Create Category</a>
-                                </li>
-
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{ route('admin.categories.index') }}"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
                         </li>
 
 
